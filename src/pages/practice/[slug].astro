@@ -1,0 +1,37 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { sortPractice } from "@/utils/content";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("practice");
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const allPractice = sortPractice(await getCollection("practice"));
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.summary} canonical={`/practice/${entry.id}/`}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Practice</span>
+      <h1 class="section-title">{entry.data.title}</h1>
+      <p class="section-lead">{entry.data.summary}</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container detail-grid">
+      <article class="article-shell">
+        <div class="article-body"><Content /></div>
+      </article>
+      <aside class="detail-aside">
+        <h2>专业领域</h2>
+        <ul class="clean-list">
+          {allPractice.map((item) => <li><a href={`/practice/${item.id}/`}>{item.data.shortTitle}</a></li>)}
+        </ul>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

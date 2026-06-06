@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { sortPractice } from "@/utils/content";
+
+const practice = sortPractice(await getCollection("practice"));
+---
+
+<BaseLayout title="专业领域" description="方丽英律师专业领域：婚姻家事与家族财富管理、银行与证券、不良资产处置、涉外民商事。">
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Practice</span>
+      <h1 class="section-title">专业领域</h1>
+      <p class="section-lead">以婚姻家事与家族财富管理为主线，结合金融、资产处置和涉外民商事能力，处理复杂家庭与商业事实交织的法律问题。</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="filter-bar" data-filter-control="[data-practice-card]">
+        <button class="active" type="button" data-filter="全部">全部</button>
+        {practice.map((item) => <button type="button" data-filter={item.data.shortTitle}>{item.data.shortTitle}</button>)}
+      </div>
+      <div class="practice-grid">
+        {practice.map((item) => (
+          <a class="practice-card" href={`/practice/${item.id}/`} data-practice-card data-category={item.data.shortTitle}>
+            <h2>{item.data.title}</h2>
+            <p>{item.data.summary}</p>
+            <div class="tag-row">{item.data.keywords.map((tag) => <span class="tag">{tag}</span>)}</div>
+            <span class="card-link">查看详情</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,31 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("cases");
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.summary} canonical={`/cases/${entry.id}/`}>
+  <section class="section">
+    <div class="container detail-grid">
+      <article class="article-shell">
+        <span class="article-kicker">{entry.data.category} · {entry.data.field}</span>
+        <h1>{entry.data.title}</h1>
+        <p class="article-meta">{entry.data.year ?? "代表案例"} · {entry.data.anonymized}</p>
+        <div class="article-body"><Content /></div>
+      </article>
+      <aside class="detail-aside">
+        <h2>争议焦点</h2>
+        <ul class="clean-list">{entry.data.focus.map((item) => <li>{item}</li>)}</ul>
+        <h2>处理要点</h2>
+        <ul class="clean-list">{entry.data.handling.map((item) => <li>{item}</li>)}</ul>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

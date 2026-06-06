@@ -1,0 +1,153 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { profile } from "@/data/profile";
+import { sortCases, sortInsights, sortPractice } from "@/utils/content";
+
+const practice = sortPractice(await getCollection("practice"));
+const cases = sortCases(await getCollection("cases"));
+const insights = sortInsights(await getCollection("insights"));
+const featuredCases = cases.filter((item) => item.data.featured).slice(0, 4);
+const featuredInsights = insights.filter((item) => item.data.featured).slice(0, 3);
+---
+
+<BaseLayout title="方丽英｜婚姻家事与家族财富管理律师" description="方丽英律师个人主页，展示婚姻家事与家族财富管理、银行与证券、不良资产处置、涉外民商事领域的专业履历、代表案例与法律解读。">
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-copy" data-reveal>
+        <h1>{profile.name}</h1>
+        <p class="hero-role">{profile.title}</p>
+        <div class="hero-info">
+          <p><span>电 话</span><a href={`tel:${profile.phone}`}>{profile.phone}</a></p>
+          <p><span>邮 箱</span><a href={`mailto:${profile.email}`}>{profile.email}</a></p>
+        </div>
+        <div class="hero-field">
+          <h2>专业领域</h2>
+          <p>{profile.practiceAreas.join("，")}</p>
+        </div>
+        <div class="hero-actions">
+          <a class="button" href="/about/">简介</a>
+        </div>
+      </div>
+      <div class="hero-portrait" data-reveal>
+        <img src="/assets/fangliying-portrait.png" alt="方丽英律师职业形象照，婚姻家事与家族财富管理律师" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section band-white">
+    <div class="container split-grid">
+      <article class="bio-panel" data-reveal>
+        <span class="eyebrow">Profile</span>
+        <h2>以家事温度处理复杂财富与商事事实</h2>
+        <p>{profile.intro}</p>
+        <p>{profile.principle}</p>
+        <a class="button secondary" href="/about/">完整履历</a>
+      </article>
+      <aside class="side-rail" data-reveal>
+        <div class="rail-block">
+          <h3>社会身份</h3>
+          <ul class="clean-list">
+            {profile.roles.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div class="rail-block">
+          <h3>荣誉奖项</h3>
+          <ul class="clean-list">
+            {profile.honors.slice(0, 4).map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section band-blue">
+    <div class="container" data-reveal>
+      <span class="eyebrow">Evidence</span>
+      <h2 class="section-title">专业经验以可验证事实呈现</h2>
+      <p class="section-lead">个人主页不做夸张承诺，而是用执业身份、代表案例、专业文章和公开履历建立稳定可信的专业画像。</p>
+      <div class="stats-row">
+        <div class="stat"><strong>4</strong><span>核心专业领域</span></div>
+        <div class="stat"><strong>12+</strong><span>匿名化代表案例</span></div>
+        <div class="stat"><strong>6</strong><span>公开荣誉与培训经历</span></div>
+        <div class="stat"><strong>10+</strong><span>企业与机构服务经验</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Practice</span>
+      <h2 class="section-title">专业领域</h2>
+      <p class="section-lead">主线聚焦婚姻家事与家族财富管理，同时以金融、资产处置和涉外民商事能力支撑复杂案件处理。</p>
+      <div class="practice-grid">
+        {practice.map((item) => (
+          <a class="practice-card" href={`/practice/${item.id}/`} data-reveal>
+            <h3>{item.data.shortTitle}</h3>
+            <p>{item.data.summary}</p>
+            <div class="tag-row">
+              {item.data.keywords.slice(0, 3).map((tag) => <span class="tag">{tag}</span>)}
+            </div>
+            <span class="card-link">查看领域</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section band-white">
+    <div class="container">
+      <span class="eyebrow">Cases</span>
+      <h2 class="section-title">精选案例</h2>
+      <p class="section-lead">以下案例均作匿名化处理，仅展示争议类型、处理重点和专业经验，不构成对类似案件结果的承诺。</p>
+      <div class="card-grid">
+        {featuredCases.map((item) => (
+          <a class="case-card" href={`/cases/${item.id}/`} data-category={item.data.category} data-reveal>
+            <div>
+              <p class="meta">{item.data.category} · {item.data.field}</p>
+              <h3>{item.data.title}</h3>
+              <p>{item.data.summary}</p>
+              <span class="card-link">查看案例</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Insights</span>
+      <h2 class="section-title">法律解读</h2>
+      <p class="section-lead">以解读、研究和评论三类内容承接办案手记与专业观察，全部生成独立静态链接。</p>
+      <div class="list-stack">
+        {featuredInsights.map((item) => (
+          <a class="insight-card" href={`/insights/${item.id}/`} data-category={item.data.type} data-reveal>
+            <div>
+              <p class="meta">{item.data.type} · {item.data.field}</p>
+              <h3>{item.data.title}</h3>
+              <p>{item.data.summary}</p>
+            </div>
+            <span class="card-link">阅读</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight band-white">
+    <div class="container contact-grid">
+      <div>
+        <span class="eyebrow">Contact</span>
+        <h2 class="section-title">联系我</h2>
+        <p class="section-lead">本页仅展示克制联系方式，不设置在线留言弹窗。具体委托关系以双方正式沟通和书面手续为准。</p>
+      </div>
+      <div class="contact-panel">
+        <p><strong>邮箱：</strong><a href={`mailto:${profile.email}`}>{profile.email}</a></p>
+        <p><strong>电话：</strong><a href={`tel:${profile.phone}`}>{profile.phone}</a></p>
+        <p><strong>地址：</strong>{profile.address}</p>
+        <a class="button secondary" href="/contact/">查看联系信息</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

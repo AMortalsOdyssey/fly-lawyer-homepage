@@ -1,0 +1,31 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { profile } from "@/data/profile";
+---
+
+<BaseLayout title="联系我" description="方丽英律师联系方式、律所地址与个人主页声明。">
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Contact</span>
+      <h1 class="section-title">联系我</h1>
+      <p class="section-lead">克制展示联系方式，不设置在线留言弹窗或强咨询入口。具体委托关系以正式沟通和书面手续为准。</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container contact-grid">
+      <div class="contact-panel">
+        <p><strong>律师：</strong>{profile.name}</p>
+        <p><strong>职务：</strong>{profile.title}</p>
+        <p><strong>邮箱：</strong><a href={`mailto:${profile.email}`}>{profile.email}</a></p>
+        <p><strong>电话：</strong><a href={`tel:${profile.phone}`}>{profile.phone}</a></p>
+        <p><strong>律所电话：</strong><a href={`tel:${profile.firmPhone}`}>{profile.firmPhone}</a></p>
+        <p><strong>办公地址：</strong>{profile.address}</p>
+        <p><strong>律所官网个人页：</strong><a href={profile.officialProfileUrl}>{profile.officialProfileUrl}</a></p>
+      </div>
+      <div>
+        <h2 class="section-title">说明</h2>
+        <div class="notice">{profile.disclaimer}</div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

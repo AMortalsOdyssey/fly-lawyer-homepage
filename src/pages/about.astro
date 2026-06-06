@@ -1,0 +1,43 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { profile } from "@/data/profile";
+---
+
+<BaseLayout title="简介" description="方丽英律师完整履历、执业身份、荣誉奖项、社会职务、代表经历与服务企业。">
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">About</span>
+      <h1 class="section-title">简介</h1>
+      <p class="section-lead">完整展示方丽英律师的执业身份、专业方向、荣誉奖项、社会职务与服务经验。</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container split-grid">
+      <article class="bio-panel">
+        <h2>{profile.name}</h2>
+        <p>{profile.intro}</p>
+        <p>{profile.principle}</p>
+        <h2>擅长领域</h2>
+        <div class="tag-row">
+          {profile.practiceAreas.map((area) => <span class="tag">{area}</span>)}
+        </div>
+        <h2>服务企业与单位</h2>
+        <p>{profile.clients.join("、")}等数十家企业和单位。</p>
+      </article>
+      <aside class="side-rail">
+        <div class="rail-block">
+          <h3>执业资格</h3>
+          <ul class="clean-list">{profile.qualifications.map((item) => <li>{item}</li>)}</ul>
+        </div>
+        <div class="rail-block">
+          <h3>社会职务</h3>
+          <ul class="clean-list">{profile.roles.map((item) => <li>{item}</li>)}</ul>
+        </div>
+        <div class="rail-block">
+          <h3>荣誉奖项</h3>
+          <ul class="clean-list">{profile.honors.map((item) => <li>{item}</li>)}</ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

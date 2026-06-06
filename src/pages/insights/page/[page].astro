@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { INSIGHTS_PER_PAGE, paginate, sortInsights, unique } from "@/utils/content";
+
+export async function getStaticPaths() {
+  const allInsights = sortInsights(await getCollection("insights"));
+  return paginate(allInsights, INSIGHTS_PER_PAGE).slice(1).map((pageData) => ({
+    params: { page: String(pageData.page) },
+    props: { pageData, allInsights }
+  }));
+}
+
+const { pageData, allInsights } = Astro.props;
+const types = unique(allInsights.map((item) => item.data.type));
+---
+
+<BaseLayout title={`法律解读 第 ${pageData.page} 页`} description="方丽英律师法律解读分页列表。" canonical={`/insights/page/${pageData.page}/`}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Insights</span>
+      <h1 class="section-title">法律解读</h1>
+      <p class="section-lead">第 {pageData.page} 页。</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="filter-bar" data-filter-control="[data-insight-card]">
+        <button class="active" type="button" data-filter="全部">全部</button>
+        {types.map((type) => <button type="button" data-filter={type}>{type}</button>)}
+      </div>
+      <div class="list-stack">
+        {pageData.items.map((item) => (
+          <a class="insight-card" href={`/insights/${item.id}/`} data-insight-card data-category={item.data.type}>
+            <div>
+              <p class="meta">{item.data.type} · {item.data.field} · {item.data.pubDate.toLocaleDateString("zh-CN")}</p>
+              <h2>{item.data.title}</h2>
+              <p>{item.data.summary}</p>
+            </div>
+            <span class="card-link">阅读</span>
+          </a>
+        ))}
+      </div>
+      <nav class="pager" aria-label="文章分页">
+        <a href="/insights/">1</a>
+        {Array.from({ length: pageData.totalPages - 1 }, (_, index) => index + 2).map((page) => (
+          page === pageData.page ? <span class="current">{page}</span> : <a href={`/insights/page/${page}/`}>{page}</a>
+        ))}
+      </nav>
+    </div>
+  </section>
+</BaseLayout>

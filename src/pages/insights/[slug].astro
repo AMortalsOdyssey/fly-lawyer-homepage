@@ -1,0 +1,33 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("insights");
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.summary} canonical={`/insights/${entry.id}/`}>
+  <section class="section">
+    <div class="container detail-grid">
+      <article class="article-shell">
+        <span class="article-kicker">{entry.data.type} · {entry.data.field}</span>
+        <h1>{entry.data.title}</h1>
+        <p class="article-meta">{entry.data.pubDate.toLocaleDateString("zh-CN")}</p>
+        <div class="article-body"><Content /></div>
+      </article>
+      <aside class="detail-aside">
+        <h2>文章属性</h2>
+        <ul class="clean-list">
+          <li>类型：{entry.data.type}</li>
+          <li>领域：{entry.data.field}</li>
+          <li>日期：{entry.data.pubDate.toLocaleDateString("zh-CN")}</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
