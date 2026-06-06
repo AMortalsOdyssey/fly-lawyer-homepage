@@ -1,35 +1,46 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { sortPractice } from "@/utils/content";
 
 const practice = sortPractice(await getCollection("practice"));
+const activePractice = practice[0];
+const { Content } = await render(activePractice);
 ---
 
-<BaseLayout title="专业领域" description="方丽英律师专业领域：婚姻家事与家族财富管理、银行与证券、不良资产处置、涉外民商事。">
+<BaseLayout title="专业领域" description="方丽英律师专业领域：婚姻家事诉讼业务、婚姻家庭非诉业务、继承类业务、私人客户及财富管理业务。">
   <section class="page-hero">
     <div class="container">
       <span class="eyebrow">Practice</span>
       <h1 class="section-title">专业领域</h1>
-      <p class="section-lead">以婚姻家事与家族财富管理为主线，结合金融、资产处置和涉外民商事能力，处理复杂家庭与商业事实交织的法律问题。</p>
+      <p class="section-lead">婚姻家事诉讼业务、婚姻家庭非诉业务、继承类业务、私人客户及财富管理业务。</p>
     </div>
   </section>
-  <section class="section">
-    <div class="container">
-      <div class="filter-bar" data-filter-control="[data-practice-card]">
-        <button class="active" type="button" data-filter="全部">全部</button>
-        {practice.map((item) => <button type="button" data-filter={item.data.shortTitle}>{item.data.shortTitle}</button>)}
-      </div>
-      <div class="practice-grid">
+
+  <section class="practice-section">
+    <div class="container practice-container">
+      <nav class="practice-breadcrumb" aria-label="当前位置">
+        <a href="/">方丽英律师个人主页</a>
+        <span>&gt;</span>
+        <span>{activePractice.data.title}</span>
+      </nav>
+
+      <nav class="practice-tabs" aria-label="专业领域子栏目">
         {practice.map((item) => (
-          <a class="practice-card" href={`/practice/${item.id}/`} data-practice-card data-category={item.data.shortTitle}>
-            <h2>{item.data.title}</h2>
-            <p>{item.data.summary}</p>
-            <div class="tag-row">{item.data.keywords.map((tag) => <span class="tag">{tag}</span>)}</div>
-            <span class="card-link">查看详情</span>
+          <a
+            class:list={[{ active: item.id === activePractice.id }, "practice-tab"]}
+            href={`/practice/${item.id}/`}
+            aria-current={item.id === activePractice.id ? "page" : undefined}
+          >
+            {item.data.shortTitle}
           </a>
         ))}
-      </div>
+      </nav>
+
+      <article class="practice-content-panel" aria-labelledby="practice-current-title">
+        <h2 id="practice-current-title">{activePractice.data.title}</h2>
+        <div class="article-body practice-body"><Content /></div>
+      </article>
     </div>
   </section>
 </BaseLayout>

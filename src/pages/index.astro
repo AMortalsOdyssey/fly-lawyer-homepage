@@ -23,10 +23,7 @@ const featuredInsights = insights.filter((item) => item.data.featured).slice(0, 
         </div>
         <div class="hero-field">
           <h2>专业领域</h2>
-          <p>{profile.practiceAreas.join("，")}</p>
-        </div>
-        <div class="hero-actions">
-          <a class="button" href="/about/">简介</a>
+          <p>{practice.map((item) => item.data.shortTitle).join("，")}</p>
         </div>
       </div>
       <div class="hero-portrait" data-reveal>
@@ -65,7 +62,7 @@ const featuredInsights = insights.filter((item) => item.data.featured).slice(0, 
     <div class="container" data-reveal>
       <span class="eyebrow">Evidence</span>
       <h2 class="section-title">专业经验以可验证事实呈现</h2>
-      <p class="section-lead">个人主页不做夸张承诺，而是用执业身份、代表案例、专业文章和公开履历建立稳定可信的专业画像。</p>
+      <p class="section-lead">执业身份、代表案例、专业文章和公开履历，构成个人专业画像的核心信息。</p>
       <div class="stats-row">
         <div class="stat"><strong>4</strong><span>核心专业领域</span></div>
         <div class="stat"><strong>12+</strong><span>匿名化代表案例</span></div>
@@ -99,7 +96,7 @@ const featuredInsights = insights.filter((item) => item.data.featured).slice(0, 
     <div class="container">
       <span class="eyebrow">Cases</span>
       <h2 class="section-title">精选案例</h2>
-      <p class="section-lead">以下案例均作匿名化处理，仅展示争议类型、处理重点和专业经验，不构成对类似案件结果的承诺。</p>
+      <p class="section-lead">婚姻家事、商事争议、金融争议、劳动争议与民刑交叉等代表经历。</p>
       <div class="card-grid">
         {featuredCases.map((item) => (
           <a class="case-card" href={`/cases/${item.id}/`} data-category={item.data.category} data-reveal>
@@ -140,7 +137,6 @@ const featuredInsights = insights.filter((item) => item.data.featured).slice(0, 
       <div>
         <span class="eyebrow">Contact</span>
         <h2 class="section-title">联系我</h2>
-        <p class="section-lead">本页仅展示克制联系方式，不设置在线留言弹窗。具体委托关系以双方正式沟通和书面手续为准。</p>
       </div>
       <div class="contact-panel">
         <p><strong>邮箱：</strong><a href={`mailto:${profile.email}`}>{profile.email}</a></p>

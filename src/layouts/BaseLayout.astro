@@ -84,6 +84,8 @@ const jsonLd = {
       <nav class="site-nav" aria-label="主导航">
         <a class="brand" href="/" aria-label="方丽英律师个人主页">
           <img src="/assets/tianxi-logo.png" alt="天习律师事务所 Logo" />
+          <span class="brand-divider" aria-hidden="true"></span>
+          <span class="brand-person">方丽英律师</span>
         </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
           <span></span>
@@ -104,19 +106,20 @@ const jsonLd = {
     </main>
     <footer class="site-footer">
       <div class="footer-inner">
-        <div>
-          <img class="footer-logo" src="/assets/tianxi-logo.png" alt="天习律师事务所 Logo" />
-          <p>{profile.disclaimer}</p>
+        <div class="footer-main">
+          <a class="footer-logo-link" href={profile.firmUrl} aria-label="访问广东天习律师事务所官网">
+            <img class="footer-logo" src="/assets/tianxi-logo.png" alt="天习律师事务所 Logo" />
+          </a>
+          <div class="footer-meta">
+            <p><span>律师</span><strong>{profile.name}律师 · {profile.firm}</strong></p>
+            <p><span>邮箱</span><a href={`mailto:${profile.email}`}>{profile.email}</a></p>
+            <p><span>电话</span><a href={`tel:${profile.phone}`}>{profile.phone}</a></p>
+            <p><span>地址</span>{profile.address}</p>
+          </div>
         </div>
-        <div class="footer-meta">
-          <p>{profile.firm}</p>
-          <p>{profile.address}</p>
-          <p><a href={`mailto:${profile.email}`}>{profile.email}</a> · <a href={`tel:${profile.phone}`}>{profile.phone}</a></p>
-          <p><a href={profile.officialProfileUrl}>律所官网个人页</a></p>
-        </div>
+        <p class="footer-copyright">Copyright © 2026 fangliying.com All Rights Reserved.</p>
       </div>
     </footer>
-    <button class="back-top" type="button" aria-label="返回顶部">↑</button>
     <script>
       const navToggle = document.querySelector(".nav-toggle");
       const navMenu = document.querySelector(".nav-menu");
@@ -125,12 +128,6 @@ const jsonLd = {
         navToggle.setAttribute("aria-expanded", String(!expanded));
         navMenu?.classList.toggle("open", !expanded);
       });
-
-      const backTop = document.querySelector(".back-top");
-      backTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-      window.addEventListener("scroll", () => {
-        backTop?.classList.toggle("visible", window.scrollY > 600);
-      }, { passive: true });
 
       const revealItems = document.querySelectorAll("[data-reveal]");
       if ("IntersectionObserver" in window) {

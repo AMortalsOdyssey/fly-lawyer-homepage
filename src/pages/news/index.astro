@@ -1,0 +1,50 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const newsItems = [
+  {
+    category: "律所动态",
+    date: "2026-06-01",
+    title: "天习婚姻家庭专业委员会专题分享",
+    summary: "围绕婚姻家事诉讼、家庭财富安排和继承实务，持续沉淀专业服务经验。"
+  },
+  {
+    category: "专业活动",
+    date: "2026-05-18",
+    title: "婚姻家事与家族财富管理主题交流",
+    summary: "结合离婚财产分割、子女抚养和家庭企业资产安排，整理实务观察与沟通要点。"
+  },
+  {
+    category: "公益普法",
+    date: "2026-04-26",
+    title: "社区法律服务与家庭权益保护",
+    summary: "关注家庭成员权益、未成年人保护和常见民商事纠纷，参与公益法律服务。"
+  }
+];
+---
+
+<BaseLayout title="动态资讯" description="方丽英律师动态资讯、专业活动、荣誉消息与公益普法记录。">
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">News</span>
+      <h1 class="section-title">动态资讯</h1>
+      <p class="section-lead">专业活动、荣誉消息、公益普法与律所动态。</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="list-stack">
+        {newsItems.map((item) => (
+          <article class="insight-card news-card">
+            <div>
+              <p class="meta">{item.category} · {item.date}</p>
+              <h2>{item.title}</h2>
+              <p>{item.summary}</p>
+            </div>
+            <span class="card-link">待更新</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

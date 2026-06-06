@@ -17,21 +17,35 @@ const allPractice = sortPractice(await getCollection("practice"));
   <section class="page-hero">
     <div class="container">
       <span class="eyebrow">Practice</span>
-      <h1 class="section-title">{entry.data.title}</h1>
-      <p class="section-lead">{entry.data.summary}</p>
+      <h1 class="section-title">专业领域</h1>
+      <p class="section-lead">婚姻家事诉讼业务、婚姻家庭非诉业务、继承类业务、私人客户及财富管理业务。</p>
     </div>
   </section>
-  <section class="section">
-    <div class="container detail-grid">
-      <article class="article-shell">
-        <div class="article-body"><Content /></div>
+
+  <section class="practice-section">
+    <div class="container practice-container">
+      <nav class="practice-breadcrumb" aria-label="当前位置">
+        <a href="/">方丽英律师个人主页</a>
+        <span>&gt;</span>
+        <span>{entry.data.title}</span>
+      </nav>
+
+      <nav class="practice-tabs" aria-label="专业领域子栏目">
+        {allPractice.map((item) => (
+          <a
+            class:list={[{ active: item.id === entry.id }, "practice-tab"]}
+            href={`/practice/${item.id}/`}
+            aria-current={item.id === entry.id ? "page" : undefined}
+          >
+            {item.data.shortTitle}
+          </a>
+        ))}
+      </nav>
+
+      <article class="practice-content-panel" aria-labelledby="practice-current-title">
+        <h2 id="practice-current-title">{entry.data.title}</h2>
+        <div class="article-body practice-body"><Content /></div>
       </article>
-      <aside class="detail-aside">
-        <h2>专业领域</h2>
-        <ul class="clean-list">
-          {allPractice.map((item) => <li><a href={`/practice/${item.id}/`}>{item.data.shortTitle}</a></li>)}
-        </ul>
-      </aside>
     </div>
   </section>
 </BaseLayout>
