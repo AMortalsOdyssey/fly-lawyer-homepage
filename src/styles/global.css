@@ -861,22 +861,26 @@ textarea {
 .footer-inner {
   width: min(var(--nav-max), calc(100% - 48px));
   margin: 0 auto;
-  padding: 38px 0 22px;
+  padding: 42px 0 20px;
   font-size: 14px;
   overflow-wrap: anywhere;
 }
 
 .footer-main {
+  width: min(920px, 100%);
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: clamp(46px, 6vw, 86px);
+  grid-template-columns: 220px minmax(0, 620px);
+  gap: clamp(52px, 6vw, 82px);
   align-items: center;
+  justify-content: center;
 }
 
 .footer-logo-link {
   display: inline-flex;
   width: fit-content;
   align-items: center;
+  justify-self: center;
 }
 
 .footer-logo {
@@ -886,9 +890,10 @@ textarea {
 
 .footer-meta {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  column-gap: 42px;
-  row-gap: 16px;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  column-gap: 44px;
+  row-gap: 18px;
+  align-items: center;
 }
 
 .footer-meta p {
@@ -913,7 +918,7 @@ textarea {
 }
 
 .footer-copyright {
-  margin: 28px 0 0;
+  margin: 30px 0 0;
   padding-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   color: rgba(255, 255, 255, 0.5);
@@ -1014,14 +1019,23 @@ textarea {
 
   .split-grid,
   .detail-grid,
-  .contact-grid,
-  .footer-inner {
+  .contact-grid {
     grid-template-columns: 1fr;
   }
 
   .footer-main {
-    grid-template-columns: 1fr;
-    gap: 28px;
+    width: min(760px, 100%);
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 34px;
+  }
+
+  .footer-logo {
+    width: 188px;
+  }
+
+  .footer-meta {
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+    column-gap: 28px;
   }
 
   .practice-grid,
@@ -1105,13 +1119,35 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  .footer-main {
+    grid-template-columns: minmax(116px, 148px) minmax(0, 1fr);
+    gap: 20px;
+    align-items: center;
+  }
+
+  .footer-logo-link {
+    justify-self: start;
+  }
+
   .footer-logo {
-    width: 188px;
+    width: min(148px, 100%);
   }
 
   .footer-meta {
     grid-template-columns: 1fr;
-    row-gap: 14px;
+    row-gap: 12px;
+  }
+
+  .footer-meta p {
+    line-height: 22px;
+  }
+
+  .footer-meta span {
+    margin-bottom: 2px;
+  }
+
+  .footer-copyright {
+    margin-top: 24px;
   }
 
   .hero-portrait {
