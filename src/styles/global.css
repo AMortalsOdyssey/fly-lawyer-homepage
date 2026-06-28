@@ -789,13 +789,15 @@ textarea {
 .filter-bar {
   display: inline-flex;
   align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
   max-width: 100%;
   gap: 4px;
   margin: 0 0 26px;
   padding: 6px;
-  overflow-x: auto;
+  overflow-x: hidden;
   border: 1px solid rgba(6, 58, 155, 0.12);
-  border-radius: 999px;
+  border-radius: 28px;
   background: rgba(255, 255, 255, 0.92);
   box-shadow:
     0 1px 1px rgba(7, 31, 95, 0.04),
@@ -843,6 +845,14 @@ textarea {
 .filter-bar a:focus-visible {
   outline: 2px solid rgba(6, 58, 155, 0.35);
   outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .filter-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    border-radius: 999px;
+  }
 }
 
 .filtered-out {
