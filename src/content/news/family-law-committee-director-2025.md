@@ -10,9 +10,6 @@ sourceUrl: "https://mp.weixin.qq.com/s/1b8_1mh9VQjNcQhKhmIVhQ?scene=334"
 **专业建设**
 
 为深化专业领域建设，推动律所高质量发展，天习律师事务所正式成立首届专业委员会。其中，天习第一届婚姻家庭法律专业委员会由高级合伙人方丽英律师担任主任。
-
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/I5EaJibnpKX36PHCuY3YM7wTm5zgiawD4bvnSGT8ER8Pq6z7R0wc5SgCvyZ1PMwfPCsv2nqiaLQaDd3Z7VXJ9n7ww/640?wx_fmt=jpeg&from=appmsg)
-
 天习第一届婚姻家庭法律专业委员会各成员均专注于婚姻家事与家族财富管理领域，具备丰富的理论知识和实践经验，能够敏锐洞察婚姻家事案件、家族企业和高净值家庭的个性化特征及深层次需求，为客户提供专业、高效、优质的婚姻家事法律服务。
 
 **方丽英律师**

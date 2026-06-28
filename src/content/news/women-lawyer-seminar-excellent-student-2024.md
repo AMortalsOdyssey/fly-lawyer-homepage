@@ -10,13 +10,7 @@ sourceUrl: "https://mp.weixin.qq.com/s/ewUVlnkD47v_VsMWx3iQOg?scene=334"
 **学习与荣誉**
 
 10月18日至20日，广东省律师协会在汕尾市举办了培训主题为“学习宣传贯彻党的二十届三中全会精神，以高质量法律服务助力全面深化改革”的2024年广东女律师高级研修班，旨在深入学习贯彻党的二十届三中全会精神，认真贯彻习近平法治思想，进一步提升我省女律师思想政治素养和综合素质，推动广东律师事业高质量发展。
-
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/I5EaJibnpKX0myuRGmQbrdcO7sBs1YTGRtl65CGvnM6SmMnDVWlk8j8UeggrMLiaZz1o95YFgA4rhJr04WcJsiczA/640?wx_fmt=jpeg&from=appmsg)
-
 高级合伙人、副主任方丽英律师作为广州市女律师代表之一，与来自广东省多个地市的共七十余名优秀女律师代表共同参与了2024年广东女律师高级研修班的培训学习。经过全面而深入的学习，方丽英律师不仅圆满完成了所有既定课程，更以卓越的表现被授予“优秀学员”荣誉称号。
-
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/I5EaJibnpKX0myuRGmQbrdcO7sBs1YTGRfthsFuibOZTdnHFgOE9CjpeQ314qwJh95wdTU8vUUlNh9JkISxkhwOg/640?wx_fmt=png&from=appmsg)
-
 **方丽英律师获结业证书、荣誉证书**
 
 此次培训安排为期三天，涵盖学习宣传贯彻党的二十届三中全会精神、习近平法治思想专题辅导、律师执业定位及与港澳律师的协作与交流、女律师如何发挥在律所建设、团队管理与人才培养中的作用、客户开发及管理、精准表达与有效沟通等主题授课。

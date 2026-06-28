@@ -10,15 +10,9 @@ sourceUrl: "https://mp.weixin.qq.com/s/CgPRdz9mEPgs0sgV3x7Eaw?scene=334"
 ---
 
 2025年5月14日至15日，山东省律师事务所建设发展研讨会在山东潍坊召开。本次会议以“深化协同创新 构建律所发展新格局”为主题，由山东省律师协会主办，潍坊市律师协会、山东省律师协会律师事务所建设指导委员会承办。研讨会分为主题研讨、夜话研讨、专题研讨、律所调研交流等环节。
-
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/I5EaJibnpKX0kbHyJPKomUic8PHsGd1cTQVic6IK1n6SZ9pWXwxYYxN7ZSH0JiapGrPmFIic31sxJiakPSFGQf2iaKjjQ/640?wx_fmt=jpeg&from=appmsg)
-
 **专题研讨：法律服务产品新模式**
 
 方丽英律师受邀作为特邀嘉宾出席，作《天习律所法律产品研发与落地实践》分享，介绍天习律所在法律服务产品化领域的创新成果与实践经验。
-
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/I5EaJibnpKX0kbHyJPKomUic8PHsGd1cTQIHGr6zvFOQfHqclSxQtPz8gDcu1q2YNq95bkAkgnAAmZZ9aHd6DRXw/640?wx_fmt=jpeg&from=appmsg)
-
 **天习律所法律产品研发与落地实践**
 
 在5月15日上午的“法律服务产品新模式”专题研讨环节，方丽英副主任以“天习律所法律产品研发与落地实践”为主题，系统阐述了法律服务产品如何通过差异化认知构建、专业护城河打造、行业影响力塑造三大品牌价值支撑律所发展。她指出，将法律服务转化为“有形化、标准化、场景化”的产品，是突破传统模式、实现客户价值感知的关键。

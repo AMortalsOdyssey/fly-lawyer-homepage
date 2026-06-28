@@ -14,9 +14,6 @@ sourceUrl: "https://mp.weixin.qq.com/s/39X3py48JqPEWl-javKcXg?scene=334"
 2025年3月25日，广东省律师协会正式公布第六批涉外律师人才库名单。经严格评审程序，方丽英副主任律师成功入选涉外律师新锐人才库名单。此次名单中，天习律师事务所共有6名律师入选。
 
 **广东省律师协会涉外律师人才库**
-
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/I5EaJibnpKX31gNCvRb3na3ZGfvWESPLv0r9u0Cibet3Ra2ADVJV0YCNGU3OAsxBibO6Ddr23dC5t5asTBHmTIicJw/640?wx_fmt=jpeg&from=appmsg)
-
 **律师简介**
 
 **天习婚姻家庭法律专业委员会主任**

@@ -19,9 +19,6 @@ sourceUrl: "https://mp.weixin.qq.com/s/RnQkVSpKZ4BeHb5uf77gqQ?scene=334"
 ---
 
 近日，由天习婚姻家庭法律专业委员会主任方丽英律师与委员姚申翔共同代理的一宗离婚纠纷案件，在他们的专业协调下成功达成调解，并顺利结案。当事人李女士（化名，下同）为表达对律师专业素养和高效服务的赞赏，特意寄来了一面绣有“服务优质 司法为民”字样的锦旗。
-
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/I5EaJibnpKX0F3kwRgZcIK8EN1IM964xzTrf8QMWKcFB4o5w4J7bdpmhVIwsIf45DKxJjhYUThFRRcnHL1C4a2Q/640?wx_fmt=png&from=appmsg)
-
 **锦旗故事**
 
 **案件回顾**

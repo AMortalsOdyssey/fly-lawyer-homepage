@@ -12,9 +12,6 @@ sourceUrl: "https://mp.weixin.qq.com/s/1YuRZnzG-V2FwfAHdudjIA?scene=334"
 6月2日，由广州市律师协会举办的“2022年广州律师业务技能优质课评选大赛”评选结果正式公布。市律协按照评选程序，对全市申报课件组织了评审，经市律协十届七十五次常务理事会议审议，此次大赛共评选出51个优质课及13名优秀讲师。
 
 其中，高级合伙人方丽英副主任荣获“优秀讲师”称号，其《青年律师案源开拓实务技巧》课件荣获“优质课”。
-
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/I5EaJibnpKX0zeiboyn70zfTTkM4dORGt88IpEo9aQGQBdOQW8NLhXQWhVIPavOguvfkdNAANFT0GucVGEkGR9Fw/640?wx_fmt=png)
-
 **优质课及优秀讲师**
 
 广州市律师协会举办的“2022年广州律师业务技能优质课评选大赛”旨在推动律师开展各类专业化、行业化授课，形成大量授课成果，提升律师授课水平，同时也为进一步提高律师学、研、授能力，积累优秀授课课件，选拔优秀讲师，形成优质课程示范效应。

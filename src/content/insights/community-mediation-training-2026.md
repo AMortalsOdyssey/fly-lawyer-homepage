@@ -11,9 +11,6 @@ sourceUrl: "https://mp.weixin.qq.com/s/XWBgHTo16ItlZ4_cDaDlkQ?scene=334"
 ---
 
 为深入贯彻落实习近平法治思想，坚持和发展新时代“枫桥经验”，推动基层社会治理法治化、专业化，2026年5月28日，文冲街道办事处组织开展《2026年文冲街道人民调解业务暨“法律明白人”素养培训》。本次培训特邀广东天习律师事务所副主任、高级合伙人、广州市黄埔区人民法院特邀调解员方丽英律师担任主讲人，街道人民调解员、社区网格员、“法律明白人”代表等参加了学习。
-
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/pz3CLgAbskeaiaanAw8AyrFdRy7ibADgiaREV3W799ANvH4CcnXtKZX9vEfOl5xnFBxdlZQiaI7ia9POe2O25EwFHNNhxuguVpbCstb8FJYQvA2o/640?wx_fmt=jpeg&from=appmsg)
-
 **筑牢防线：调解的意义与程序保障**
 
 培训伊始，方丽英律师从新时代人民调解工作面临的挑战与机遇出发，指出当前社会矛盾日益多样化、复杂化，调解工作正从传统邻里纠纷向医疗、金融、新业态劳动争议等专业领域延伸。她强调，人民调解是基层治理的第一道防线，必须坚持“六个坚持”：坚持党的领导、坚持人民至上、坚持预防为主、坚持协调联动、坚持实质化解、坚持创新发展。

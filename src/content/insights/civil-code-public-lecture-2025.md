@@ -13,9 +13,6 @@ sourceUrl: "https://mp.weixin.qq.com/s/atUpDuGcNKoH8I0ufIrqRQ?scene=334"
 2025年5月是第五个“民法典宣传月”。黄埔区委政法委、黄埔区委全面依法治区委员会守法普法协调小组、黄埔区司法局联合推出“美好生活 民法典相伴”——民法典专场直播，以案释法解读民法典，“典”亮群众美好生活。
 
 5月29日晚，天习律师事务所副主任方丽英律师受邀参加“美好生活 民法典相伴”——2025年“民法典宣传月”主题普法直播活动。本次直播在平安黄埔“埔法直播间”平台进行，围绕民法典中婚姻家庭编、物权编、侵权责任编等热点问题展开深入解读，吸引了大量网友在线观看互动。
-
-![](https://mmbiz.qpic.cn/sz_mmbiz_png/I5EaJibnpKX2eibOX6B15SiaS5ZPUHLR64j70PoarKpZGe1L72ccIsDWznbLHgZqvcxWLsWPJvvVMZIrm7Xya7BXQ/640?wx_fmt=png&from=appmsg)
-
 **“民法典宣传月”主题普法直播**
 
 **直播亮点**

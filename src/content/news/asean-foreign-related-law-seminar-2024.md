@@ -10,9 +10,6 @@ sourceUrl: "https://mp.weixin.qq.com/s/1Vv86peaNlmyMTWMlELIoA?scene=334"
 **涉外研修**
 
 为加强广东省关于东盟法律人才培养和储备，提升广东省律师涉外法律服务能力，2024年11月3日至11月11日，由广东省司法厅、广东省律师协会主办，西南政法大学承办的广东省涉外律师人才研修班——东盟国家投资贸易法律专题②在重庆开班。
-
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/I5EaJibnpKX0IbiasQG1j2L57oQTONXDHQR5piaex8Lc3UGMD71y7HegURpdLw3pGq7icEPCDePH14tKYowGXaK35g/640?wx_fmt=jpeg&from=appmsg)
-
 来自广东省各市共120名律师参加培训。其中，高级合伙人、副主任方丽英律师参加了研修班培训并顺利结业。
 
 本次培训为期9天，以东盟国家投资贸易法律实务为主题，邀请多名具有丰富教学经验和精通东盟国家投资贸易法律实务的专家学者，讲授东盟国家商事争议预防及解决机制、中国律师在东盟国家的法律风险管理、东盟国家对外经贸法律制度研究、东盟国家营商环境与文化传统、东盟国家刑事诉讼法研究等内容。

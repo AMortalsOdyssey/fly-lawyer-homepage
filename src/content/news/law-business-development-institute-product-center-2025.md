@@ -16,9 +16,6 @@ sourceUrl: "https://mp.weixin.qq.com/s/hY21Zg03pSSJvd8m-l3XNg?scene=334"
 **工作机构成员名单**
 
 会上正式公布了律兴院工作机构成员名单。副主任、高级合伙人方丽英律师凭借专业能力与行业影响力，入选律兴院“产品研发中心”成员。
-
-![](https://mmbiz.qpic.cn/sz_mmbiz_jpg/I5EaJibnpKX3SmJlhyBMAic5P5fITQ3SkwBDj8ibYlMjLDdliavHH9YiciaAkFbyNmPKByBibDYeViag6fialUyqtdNXbnA/640?wx_fmt=jpeg)
-
 **方丽英**
 
 **天习副主任、高级合伙人**

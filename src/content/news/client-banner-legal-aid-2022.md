@@ -10,9 +10,4 @@ sourceUrl: "https://mp.weixin.qq.com/s/nH1dJYZZf8JDdU0U5BhfkQ?scene=334"
 **当事人认可**
 
 天习律师事务所收到一面当事人赠送的锦旗，感谢方丽英副主任律师在办案过程中的尽职尽责和努力付出，对其专业水平和服务质量给予了充分肯定。
-
-![](https://mmbiz.qpic.cn/mmbiz_jpg/I5EaJibnpKX2FmXqdTxJjbm82oeAX5FHg9YLKcf9CAUd5xZwjgibia2gIJmGxfxE8gVdIULSNe2icljMsmCpUTGRzg/640?wx_fmt=jpeg)
-
-![](https://mmbiz.qpic.cn/mmbiz_jpg/I5EaJibnpKX2FmXqdTxJjbm82oeAX5FHgdPmwo4bFWLcY5ZaTlenaH612hgVl1wwEVicqIqSsttbXtKxK1jiaEcXg/640?wx_fmt=jpeg)
-
 今后，方丽英律师将继续尽心尽力办好每一个案件，竭尽全力为每一位当事人争取合法权益。
