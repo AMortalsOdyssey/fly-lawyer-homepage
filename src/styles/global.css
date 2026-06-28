@@ -816,6 +816,10 @@ textarea {
   display: none;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 .list-stack {
   display: grid;
   gap: 16px;

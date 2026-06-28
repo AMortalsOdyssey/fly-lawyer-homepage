@@ -150,18 +150,33 @@ const jsonLd = {
       }
 
       document.querySelectorAll("[data-filter-control]").forEach((group) => {
-        const buttons = group.querySelectorAll("[data-filter]");
+        const buttons = Array.from(group.querySelectorAll("[data-filter]"));
         const targetSelector = group.getAttribute("data-filter-control");
-        const cards = document.querySelectorAll(targetSelector || "");
+        const scope = group.closest(".container") || document;
+        if (!targetSelector) return;
+
+        const applyFilter = (filter: string | null) => {
+          const activeFilter = (filter || "全部").trim();
+          const cards = scope.querySelectorAll(targetSelector);
+
+          buttons.forEach((item) => {
+            const isActive = item.getAttribute("data-filter") === activeFilter;
+            item.classList.toggle("active", isActive);
+            item.setAttribute("aria-pressed", String(isActive));
+          });
+
+          cards.forEach((card) => {
+            const value = (card.getAttribute("data-category") || "").trim();
+            const shouldHide = activeFilter !== "全部" && value !== activeFilter;
+            card.classList.toggle("filtered-out", shouldHide);
+            card.toggleAttribute("hidden", shouldHide);
+          });
+        };
+
         buttons.forEach((button) => {
+          button.setAttribute("aria-pressed", String(button.classList.contains("active")));
           button.addEventListener("click", () => {
-            const filter = button.getAttribute("data-filter");
-            buttons.forEach((item) => item.classList.remove("active"));
-            button.classList.add("active");
-            cards.forEach((card) => {
-              const value = card.getAttribute("data-category");
-              card.classList.toggle("filtered-out", filter !== "全部" && value !== filter);
-            });
+            applyFilter(button.getAttribute("data-filter"));
           });
         });
       });
