@@ -485,8 +485,8 @@ textarea {
 
 .split-grid {
   display: grid;
-  grid-template-columns: 64.22% 31.3%;
-  gap: 4.48%;
+  grid-template-columns: 61.6% 34%;
+  gap: 4.4%;
   align-items: start;
 }
 
@@ -546,11 +546,15 @@ textarea {
 
 .clean-list li {
   position: relative;
-  padding-left: 20px;
+  padding-left: 18px;
   margin-bottom: 0;
   color: #343b4b;
   font-size: 14px;
   line-height: 30px;
+}
+
+.role-list li {
+  white-space: nowrap;
 }
 
 .clean-list li::before {
@@ -591,7 +595,6 @@ textarea {
   font-size: 14px;
 }
 
-.practice-grid,
 .card-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -599,7 +602,6 @@ textarea {
   margin-top: 50px;
 }
 
-.practice-card,
 .case-card,
 .insight-card {
   border: 1px solid var(--line);
@@ -609,7 +611,6 @@ textarea {
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.practice-card:hover,
 .case-card:hover,
 .insight-card:hover {
   border-color: rgba(6, 58, 155, 0.35);
@@ -617,7 +618,6 @@ textarea {
   transform: translateY(-4px);
 }
 
-.practice-card h3,
 .case-card h3,
 .insight-card h3 {
   margin: 0 0 10px;
@@ -626,12 +626,84 @@ textarea {
   font-weight: normal;
 }
 
-.practice-card p,
 .case-card p,
 .insight-card p {
   color: var(--muted);
   font-size: 14px;
   line-height: 30px;
+}
+
+.practice-minimal {
+  background: var(--paper);
+}
+
+.practice-minimal-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 28%) minmax(0, 1fr);
+  gap: clamp(46px, 6vw, 88px);
+  align-items: start;
+}
+
+.practice-minimal-intro {
+  position: sticky;
+  top: 92px;
+  padding-top: 4px;
+}
+
+.practice-minimal-intro .section-title {
+  margin-bottom: 22px;
+}
+
+.practice-minimal-intro p {
+  margin: 0 0 30px;
+  color: #4f5663;
+  font-size: 15px;
+  line-height: 30px;
+}
+
+.practice-minimal-list {
+  display: grid;
+  border-top: 1px solid rgba(17, 24, 39, 0.18);
+}
+
+.practice-minimal-item {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  border-bottom: 1px solid rgba(17, 24, 39, 0.18);
+  padding: 28px 0;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.practice-minimal-item:hover {
+  transform: translateX(4px);
+}
+
+.minimal-index {
+  color: rgba(6, 58, 155, 0.36);
+  font-family: "CN-Regular", "Source Han Sans CN", sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.minimal-content {
+  min-width: 0;
+}
+
+.minimal-content h3 {
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 32px;
+  font-weight: normal;
+}
+
+.minimal-content p {
+  margin: 0;
+  color: #525b68;
+  font-size: 14px;
+  line-height: 28px;
 }
 
 .card-link {
@@ -698,10 +770,6 @@ textarea {
 .list-stack {
   display: grid;
   gap: 16px;
-}
-
-.news-card {
-  cursor: default;
 }
 
 .case-card,
@@ -797,6 +865,26 @@ textarea {
   color: var(--blue-700);
   border-bottom: 1px solid rgba(6, 58, 155, 0.3);
   overflow-wrap: anywhere;
+}
+
+.article-body img {
+  display: block;
+  max-width: min(100%, 760px);
+  height: auto;
+  margin: 28px auto;
+}
+
+.article-source {
+  margin: 34px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  line-height: 28px;
+}
+
+.article-source a {
+  color: var(--blue-700);
+  border-bottom: 1px solid rgba(6, 58, 155, 0.3);
 }
 
 .pager {
@@ -917,7 +1005,7 @@ textarea {
   color: #fff;
 }
 
-.footer-copyright {
+.footer-legal {
   margin: 30px 0 0;
   padding-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
@@ -925,6 +1013,14 @@ textarea {
   font-size: 12px;
   line-height: 20px;
   text-align: center;
+}
+
+.footer-legal a {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.footer-copyright {
+  margin: 4px 0 0;
 }
 
 [data-reveal] {
@@ -1038,9 +1134,16 @@ textarea {
     column-gap: 28px;
   }
 
-  .practice-grid,
   .card-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .practice-minimal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .practice-minimal-intro {
+    position: static;
   }
 
   .stats-row,
@@ -1095,9 +1198,23 @@ textarea {
 
   .hero-meta,
   .stats-row,
-  .practice-grid,
   .card-grid {
     grid-template-columns: 1fr;
+  }
+
+  .practice-minimal-grid {
+    gap: 28px;
+  }
+
+  .practice-minimal-item {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 14px;
+    padding: 24px 0;
+  }
+
+  .minimal-content h3 {
+    font-size: 20px;
+    line-height: 30px;
   }
 
   .practice-tabs {
@@ -1146,7 +1263,7 @@ textarea {
     margin-bottom: 2px;
   }
 
-  .footer-copyright {
+  .footer-legal {
     margin-top: 24px;
   }
 

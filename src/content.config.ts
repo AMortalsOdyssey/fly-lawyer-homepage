@@ -26,7 +26,8 @@ const cases = defineCollection({
     handling: z.array(z.string()),
     anonymized: z.string(),
     featured: z.boolean().default(false),
-    order: z.number()
+    order: z.number(),
+    sourceUrl: z.url().optional()
   })
 });
 
@@ -39,8 +40,21 @@ const insights = defineCollection({
     pubDate: z.coerce.date(),
     summary: z.string(),
     relatedCases: z.array(z.string()).default([]),
-    featured: z.boolean().default(false)
+    featured: z.boolean().default(false),
+    sourceUrl: z.url().optional()
   })
 });
 
-export const collections = { practice, cases, insights };
+const news = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/news" }),
+  schema: z.object({
+    title: z.string(),
+    category: z.string(),
+    pubDate: z.coerce.date(),
+    summary: z.string(),
+    featured: z.boolean().default(false),
+    sourceUrl: z.url().optional()
+  })
+});
+
+export const collections = { practice, cases, insights, news };

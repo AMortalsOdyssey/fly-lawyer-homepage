@@ -13,6 +13,12 @@ export function sortInsights(items: CollectionEntry<"insights">[]) {
   );
 }
 
+export function sortNews(items: CollectionEntry<"news">[]) {
+  return [...items].sort(
+    (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+  );
+}
+
 export function sortPractice(items: CollectionEntry<"practice">[]) {
   return [...items].sort((a, b) => a.data.order - b.data.order);
 }

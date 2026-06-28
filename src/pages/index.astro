@@ -2,13 +2,15 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { profile } from "@/data/profile";
-import { sortCases, sortInsights, sortPractice } from "@/utils/content";
+import { sortCases, sortInsights, sortNews, sortPractice } from "@/utils/content";
 
 const practice = sortPractice(await getCollection("practice"));
 const cases = sortCases(await getCollection("cases"));
 const insights = sortInsights(await getCollection("insights"));
+const news = sortNews(await getCollection("news"));
 const featuredCases = cases.filter((item) => item.data.featured).slice(0, 4);
 const featuredInsights = insights.filter((item) => item.data.featured).slice(0, 3);
+const featuredNews = news.filter((item) => item.data.featured).slice(0, 3);
 ---
 
 <BaseLayout title="方丽英｜婚姻家事与家族财富管理律师" description="方丽英律师个人主页，展示婚姻家事与家族财富管理、银行与证券、不良资产处置、涉外民商事领域的专业履历、代表案例与法律解读。">
@@ -35,59 +37,55 @@ const featuredInsights = insights.filter((item) => item.data.featured).slice(0, 
   <section class="section band-white">
     <div class="container split-grid">
       <article class="bio-panel" data-reveal>
-        <span class="eyebrow">Profile</span>
-        <h2>以家事温度处理复杂财富与商事事实</h2>
+        <h2>{profile.name}</h2>
         <p>{profile.intro}</p>
         <p>{profile.principle}</p>
-        <a class="button secondary" href="/about/">完整履历</a>
       </article>
       <aside class="side-rail" data-reveal>
         <div class="rail-block">
-          <h3>社会身份</h3>
+          <h3>执业资格</h3>
           <ul class="clean-list">
+            <li>2018年 中国律师执业资格</li>
+          </ul>
+        </div>
+        <div class="rail-block">
+          <h3>社会身份</h3>
+          <ul class="clean-list role-list">
             {profile.roles.map((item) => <li>{item}</li>)}
           </ul>
         </div>
         <div class="rail-block">
           <h3>荣誉奖项</h3>
           <ul class="clean-list">
-            {profile.honors.slice(0, 4).map((item) => <li>{item}</li>)}
+            {profile.honors.map((item) => <li>{item}</li>)}
           </ul>
         </div>
       </aside>
     </div>
   </section>
 
-  <section class="section band-blue">
-    <div class="container" data-reveal>
-      <span class="eyebrow">Evidence</span>
-      <h2 class="section-title">专业经验以可验证事实呈现</h2>
-      <p class="section-lead">执业身份、代表案例、专业文章和公开履历，构成个人专业画像的核心信息。</p>
-      <div class="stats-row">
-        <div class="stat"><strong>4</strong><span>核心专业领域</span></div>
-        <div class="stat"><strong>12+</strong><span>匿名化代表案例</span></div>
-        <div class="stat"><strong>6</strong><span>公开荣誉与培训经历</span></div>
-        <div class="stat"><strong>10+</strong><span>企业与机构服务经验</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
+  <section class="section practice-minimal">
     <div class="container">
-      <span class="eyebrow">Practice</span>
-      <h2 class="section-title">专业领域</h2>
-      <p class="section-lead">主线聚焦婚姻家事与家族财富管理，同时以金融、资产处置和涉外民商事能力支撑复杂案件处理。</p>
-      <div class="practice-grid">
-        {practice.map((item) => (
-          <a class="practice-card" href={`/practice/${item.id}/`} data-reveal>
-            <h3>{item.data.shortTitle}</h3>
-            <p>{item.data.summary}</p>
-            <div class="tag-row">
-              {item.data.keywords.slice(0, 3).map((tag) => <span class="tag">{tag}</span>)}
-            </div>
-            <span class="card-link">查看领域</span>
-          </a>
-        ))}
+      <div class="practice-minimal-grid">
+        <aside class="practice-minimal-intro" data-reveal>
+          <span class="eyebrow">Practice</span>
+          <h2 class="section-title">专业领域</h2>
+          <p>以婚姻家事为主线，延伸至继承、财富传承、家庭资产安排与私人客户法律服务。</p>
+        </aside>
+        <div class="practice-minimal-list">
+          {practice.map((item, index) => (
+            <a class="practice-minimal-item" href={`/practice/${item.id}/`} data-reveal>
+              <span class="minimal-index">{String(index + 1).padStart(2, "0")}</span>
+              <div class="minimal-content">
+                <h3>{item.data.shortTitle}</h3>
+                <p>{item.data.summary}</p>
+                <div class="tag-row">
+                  {item.data.keywords.slice(0, 3).map((tag) => <span class="tag">{tag}</span>)}
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -105,6 +103,26 @@ const featuredInsights = insights.filter((item) => item.data.featured).slice(0, 
               <h3>{item.data.title}</h3>
               <p>{item.data.summary}</p>
               <span class="card-link">查看案例</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">News</span>
+      <h2 class="section-title">动态资讯</h2>
+      <p class="section-lead">专业活动、荣誉消息、公益普法与律所动态。</p>
+      <div class="card-grid">
+        {featuredNews.map((item) => (
+          <a class="insight-card news-card" href={`/news/${item.id}/`} data-category={item.data.category} data-reveal>
+            <div>
+              <p class="meta">{item.data.category} · {item.data.pubDate.toLocaleDateString("zh-CN")}</p>
+              <h3>{item.data.title}</h3>
+              <p>{item.data.summary}</p>
+              <span class="card-link">阅读动态</span>
             </div>
           </a>
         ))}

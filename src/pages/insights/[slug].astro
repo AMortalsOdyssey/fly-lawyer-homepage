@@ -19,6 +19,9 @@ const { Content } = await render(entry);
         <h1>{entry.data.title}</h1>
         <p class="article-meta">{entry.data.pubDate.toLocaleDateString("zh-CN")}</p>
         <div class="article-body"><Content /></div>
+        {entry.data.sourceUrl && (
+          <p class="article-source"><a href={entry.data.sourceUrl} target="_blank" rel="noopener noreferrer">原文来源</a></p>
+        )}
       </article>
       <aside class="detail-aside">
         <h2>文章属性</h2>
