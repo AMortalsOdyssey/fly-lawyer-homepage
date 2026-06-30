@@ -194,5 +194,40 @@ const jsonLd = {
         });
       });
     </script>
+    <script is:inline>
+      (() => {
+        const hostname = window.location.hostname;
+        if (!["fangliying.com", "www.fangliying.com"].includes(hostname)) return;
+        if (navigator.doNotTrack === "1" || window.doNotTrack === "1") return;
+
+        const endpoint = "https://dashboard.8xd.io/api/collect/pageview";
+        const sessionKey = "fly_lawyer_pageview_session";
+        let sessionId = "";
+        try {
+          sessionId = sessionStorage.getItem(sessionKey) || crypto.randomUUID();
+          sessionStorage.setItem(sessionKey, sessionId);
+        } catch {
+          sessionId = `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+        }
+
+        const payload = JSON.stringify({
+          domain: hostname,
+          path: window.location.pathname,
+          referrer: document.referrer || "",
+          eventName: "pageview",
+          sessionId
+        });
+        const blob = new Blob([payload], { type: "text/plain;charset=UTF-8" });
+
+        if (navigator.sendBeacon && navigator.sendBeacon(endpoint, blob)) return;
+        fetch(endpoint, {
+          method: "POST",
+          mode: "cors",
+          keepalive: true,
+          headers: { "Content-Type": "text/plain;charset=UTF-8" },
+          body: payload
+        }).catch(() => {});
+      })();
+    </script>
   </body>
 </html>
