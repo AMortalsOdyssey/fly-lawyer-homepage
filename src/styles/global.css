@@ -1111,6 +1111,33 @@ textarea {
   text-align: center;
 }
 
+.footer-records {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-record-link {
+  display: inline-flex;
+  min-height: 20px;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.68);
+  white-space: nowrap;
+}
+
+.footer-record-link-police {
+  gap: 6px;
+}
+
+.footer-police-badge {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
+
 .footer-legal a {
   color: rgba(255, 255, 255, 0.68);
 }
@@ -1361,6 +1388,15 @@ textarea {
 
   .footer-legal {
     margin-top: 24px;
+  }
+
+  .footer-records {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .footer-record-link {
+    white-space: normal;
   }
 
   .hero-portrait {

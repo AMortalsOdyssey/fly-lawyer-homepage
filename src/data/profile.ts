@@ -67,6 +67,8 @@ export const siteMeta = {
   siteName: "方丽英律师个人主页",
   domain: "https://fangliying.com",
   icpRecord: "粤ICP备2025377911号-2",
+  publicSecurityRecord: "粤公网安备 44011202004035号",
+  publicSecurityRecordCode: "44011202004035",
   description:
     "方丽英律师个人主页，展示婚姻家事与家族财富管理、银行与证券、不良资产处置、涉外民商事领域的专业履历、代表案例、法律解读与联系信息。"
 };

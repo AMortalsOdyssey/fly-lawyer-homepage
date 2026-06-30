@@ -120,7 +120,20 @@ const jsonLd = {
           </div>
         </div>
         <div class="footer-legal">
-          <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{siteMeta.icpRecord}</a>
+          <div class="footer-records" aria-label="网站备案信息">
+            <a class="footer-record-link" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">
+              {siteMeta.icpRecord}
+            </a>
+            <a
+              class="footer-record-link footer-record-link-police"
+              href={`https://beian.mps.gov.cn/#/query/webSearch?code=${siteMeta.publicSecurityRecordCode}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img class="footer-police-badge" src="/assets/beian-police-badge.png" alt="" loading="lazy" />
+              <span>{siteMeta.publicSecurityRecord}</span>
+            </a>
+          </div>
           <p class="footer-copyright">Copyright © 2026 fangliying.com All Rights Reserved.</p>
         </div>
       </div>
