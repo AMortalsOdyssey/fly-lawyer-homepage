@@ -1,7 +1,7 @@
 export const profile = {
   name: "方丽英",
   title: "高级合伙人 / 广东天习律师事务所副主任 / 天习婚姻家庭专业委员会主任",
-  positioning: "专注婚姻家事与家族财富传承律师",
+  positioning: "广州专注婚姻家事与家族财富传承律师",
   firm: "广东天习律师事务所",
   licenseNumber: "14401201811069314",
   email: "fanglawyer@tianxils.com",

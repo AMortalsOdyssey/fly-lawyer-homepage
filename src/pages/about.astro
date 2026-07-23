@@ -4,11 +4,22 @@ import { profile } from "@/data/profile";
 ---
 
 <BaseLayout title="个人简介" description="方丽英律师个人简介、专业定位、执业资质、行业任职、荣誉奖项与专业活动。">
-  <section class="page-hero">
-    <div class="container">
-      <span class="eyebrow">About</span>
-      <h1 class="section-title">方丽英</h1>
-      <p class="section-lead">{profile.positioning}</p>
+  <section class="page-hero about-hero">
+    <div class="container about-hero-inner">
+      <div class="about-hero-copy">
+        <span class="eyebrow">About</span>
+        <h1 class="section-title">方丽英</h1>
+        <p class="section-lead">{profile.positioning}</p>
+      </div>
+      <div class="about-hero-portrait">
+        <img
+          src="/assets/fangliying-portrait.png"
+          alt="方丽英律师职业形象照，广州婚姻家事与家族财富传承律师"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
     </div>
   </section>
   <section class="section">
