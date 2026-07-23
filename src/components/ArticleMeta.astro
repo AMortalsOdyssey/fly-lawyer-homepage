@@ -1,0 +1,23 @@
+---
+interface Props {
+  creditLabel: string;
+  credits: string[];
+  date?: Date;
+  year?: number;
+}
+
+const { creditLabel, credits, date, year } = Astro.props;
+const isoDate = date?.toISOString().slice(0, 10);
+const displayDate = date?.toLocaleDateString("zh-CN", {
+  year: "numeric",
+  month: "long",
+  day: "numeric"
+});
+---
+
+<div class="article-meta" aria-label="内容信息">
+  <span>{creditLabel}：{credits.join("、")}</span>
+  {(date || year) && <span class="article-meta-divider" aria-hidden="true">·</span>}
+  {date && <span>发布日期：<time datetime={isoDate}>{displayDate}</time></span>}
+  {!date && year && <span>案例年份：<time datetime={String(year)}>{year}年</time></span>}
+</div>

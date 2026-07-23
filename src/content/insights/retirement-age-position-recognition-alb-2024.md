@@ -3,6 +3,9 @@ title: "女职工退休年龄与现岗位认定问题研究"
 type: "研究"
 field: "劳动争议与岗位认定"
 pubDate: 2024-01-17
+authors:
+  - "刘斌律师"
+  - "方丽英律师"
 summary: "围绕女职工退休年龄、岗位性质认定和用人单位管理约定，整理方丽英律师共同撰写专业文章的研究要点。"
 relatedCases: []
 featured: false

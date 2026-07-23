@@ -1,6 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import ArticleMeta from "@/components/ArticleMeta.astro";
+import { buildArticleSchema } from "@/utils/structured-data";
 
 export async function getStaticPaths() {
   const entries = await getCollection("cases");
@@ -9,15 +11,32 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+const canonical = `/cases/${entry.id}/`;
+const articleSchema = buildArticleSchema({
+  type: "Article",
+  path: canonical,
+  title: entry.data.title,
+  description: entry.data.summary,
+  authors: entry.data.authors.map((name) => ({ name })),
+  section: entry.data.field,
+  keywords: [entry.data.category, entry.data.field, ...entry.data.focus]
+});
 ---
 
-<BaseLayout title={entry.data.title} description={entry.data.summary} canonical={`/cases/${entry.id}/`}>
+<BaseLayout
+  title={entry.data.title}
+  description={entry.data.summary}
+  canonical={canonical}
+  ogType="article"
+  structuredData={articleSchema}
+>
   <section class="section">
     <div class="container detail-grid">
       <article class="article-shell">
         <span class="article-kicker">{entry.data.category} · {entry.data.field}</span>
         <h1>{entry.data.title}</h1>
-        <p class="article-meta">{entry.data.year ?? "代表案例"} · {entry.data.anonymized}</p>
+        <ArticleMeta creditLabel="案例整理" credits={entry.data.authors} year={entry.data.year} />
+        <p class="article-anonymized">{entry.data.anonymized}</p>
         <div class="article-body"><Content /></div>
         {entry.data.sourceUrl && (
           <p class="article-source"><a href={entry.data.sourceUrl} target="_blank" rel="noopener noreferrer">原文来源</a></p>

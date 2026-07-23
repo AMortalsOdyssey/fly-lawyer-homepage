@@ -1193,10 +1193,30 @@ textarea {
 }
 
 .article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  margin: 0;
   color: var(--muted);
   font-family: "CN-Regular", "Source Han Sans CN", sans-serif;
-  font-size: 14px;
-  line-height: 30px;
+  font-size: 13px;
+  line-height: 26px;
+}
+
+.article-meta time {
+  font-variant-numeric: tabular-nums;
+}
+
+.article-meta-divider {
+  color: rgba(85, 92, 102, 0.55);
+}
+
+.article-anonymized {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 26px;
 }
 
 .article-body {

@@ -27,7 +27,7 @@ const categories = unique(allCases.map((item) => item.data.category));
         {pageData.items.map((item) => (
           <a class="case-card" href={`/cases/${item.id}/`} data-case-card data-category={item.data.category}>
             <div>
-              <p class="meta">{item.data.category} · {item.data.field}</p>
+              <p class="meta">{item.data.category} · {item.data.field}{item.data.year ? ` · ${item.data.year}年` : ""}</p>
               <h2>{item.data.title}</h2>
               <p>{item.data.summary}</p>
             </div>

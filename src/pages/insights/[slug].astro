@@ -1,6 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import ArticleMeta from "@/components/ArticleMeta.astro";
+import { buildArticleSchema } from "@/utils/structured-data";
 
 export async function getStaticPaths() {
   const entries = await getCollection("insights");
@@ -9,15 +11,33 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+const canonical = `/insights/${entry.id}/`;
+const articleSchema = buildArticleSchema({
+  type: "Article",
+  path: canonical,
+  title: entry.data.title,
+  description: entry.data.summary,
+  authors: entry.data.authors.map((name) => ({ name })),
+  datePublished: entry.data.pubDate,
+  section: entry.data.field,
+  keywords: [entry.data.type, entry.data.field, "方丽英律师"]
+});
 ---
 
-<BaseLayout title={entry.data.title} description={entry.data.summary} canonical={`/insights/${entry.id}/`}>
+<BaseLayout
+  title={entry.data.title}
+  description={entry.data.summary}
+  canonical={canonical}
+  ogType="article"
+  publishedTime={entry.data.pubDate.toISOString()}
+  structuredData={articleSchema}
+>
   <section class="section">
     <div class="container detail-grid">
       <article class="article-shell">
         <span class="article-kicker">{entry.data.type} · {entry.data.field}</span>
         <h1>{entry.data.title}</h1>
-        <p class="article-meta">{entry.data.pubDate.toLocaleDateString("zh-CN")}</p>
+        <ArticleMeta creditLabel="作者" credits={entry.data.authors} date={entry.data.pubDate} />
         <div class="article-body"><Content /></div>
         {entry.data.sourceUrl && (
           <p class="article-source"><a href={entry.data.sourceUrl} target="_blank" rel="noopener noreferrer">原文来源</a></p>

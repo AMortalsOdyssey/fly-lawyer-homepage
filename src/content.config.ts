@@ -21,6 +21,7 @@ const cases = defineCollection({
     category: z.string(),
     field: z.string(),
     year: z.number().optional(),
+    authors: z.array(z.string()).default(["方丽英律师团队"]),
     summary: z.string(),
     focus: z.array(z.string()),
     handling: z.array(z.string()),
@@ -38,6 +39,7 @@ const insights = defineCollection({
     type: z.enum(["解读", "研究", "评论"]),
     field: z.string(),
     pubDate: z.coerce.date(),
+    authors: z.array(z.string()).default(["方丽英律师"]),
     summary: z.string(),
     relatedCases: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
@@ -51,6 +53,7 @@ const news = defineCollection({
     title: z.string(),
     category: z.string(),
     pubDate: z.coerce.date(),
+    editor: z.string().default("方丽英律师个人主页"),
     summary: z.string(),
     featured: z.boolean().default(false),
     sourceUrl: z.url().optional()

@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { profile } from "@/data/profile";
+import { profile, siteMeta } from "@/data/profile";
 import { sortCases, sortInsights, sortNews, sortPractice } from "@/utils/content";
 
 const practice = sortPractice(await getCollection("practice"));
@@ -11,9 +11,25 @@ const news = sortNews(await getCollection("news"));
 const featuredCases = cases.filter((item) => item.data.featured).slice(0, 4);
 const featuredInsights = insights.filter((item) => item.data.featured).slice(0, 3);
 const featuredNews = news.filter((item) => item.data.featured).slice(0, 3);
+const faqSchema = {
+  "@type": "FAQPage",
+  "@id": `${siteMeta.domain}/#faq`,
+  mainEntity: profile.faqs.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer
+    }
+  }))
+};
 ---
 
-<BaseLayout title="方丽英｜婚姻家事与家族财富传承律师" description="方丽英律师个人主页，专注婚姻家事与家族财富传承，提供复杂家事纠纷、家企资产隔离、涉外家事与企业家家庭资产安排法律服务。">
+<BaseLayout
+  title="方丽英｜婚姻家事与家族财富传承律师"
+  description="方丽英律师个人主页，专注婚姻家事与家族财富传承，提供复杂家事纠纷、家企资产隔离、涉外家事与企业家家庭资产安排法律服务。"
+  structuredData={faqSchema}
+>
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-copy" data-reveal>
