@@ -32,6 +32,7 @@ const jsonLd = {
       image: `${siteMeta.domain}/assets/fangliying-portrait.png`,
       telephone: profile.phone,
       email: profile.email,
+      identifier: profile.licenseNumber,
       worksFor: { "@id": `${siteMeta.domain}/#lawfirm` },
       knowsAbout: profile.practiceAreas,
       sameAs: [profile.officialProfileUrl, profile.firmUrl]
@@ -89,7 +90,7 @@ const jsonLd = {
           <span class="brand-divider" aria-hidden="true"></span>
           <span class="brand-person">方丽英律师</span>
         </a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <button class="nav-toggle" type="button" aria-label="打开主导航" aria-expanded="false" aria-controls="nav-menu">
           <span></span>
           <span></span>
           <span></span>
@@ -144,6 +145,7 @@ const jsonLd = {
       navToggle?.addEventListener("click", () => {
         const expanded = navToggle.getAttribute("aria-expanded") === "true";
         navToggle.setAttribute("aria-expanded", String(!expanded));
+        navToggle.setAttribute("aria-label", expanded ? "打开主导航" : "关闭主导航");
         navMenu?.classList.toggle("open", !expanded);
       });
 

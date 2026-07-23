@@ -3,7 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { profile } from "@/data/profile";
 ---
 
-<BaseLayout title="联系我" description="方丽英律师联系方式与律所地址。">
+<BaseLayout title="联系我" description="方丽英律师执业信息、联系方式、广东天习律师事务所地址与官方信息页。">
   <section class="page-hero">
     <div class="container">
       <span class="eyebrow">Contact</span>
@@ -14,11 +14,17 @@ import { profile } from "@/data/profile";
     <div class="container">
       <div class="contact-panel">
         <p><strong>律师：</strong>{profile.name}</p>
+        <p><strong>执业证号：</strong>{profile.licenseNumber}</p>
         <p><strong>职务：</strong>{profile.title}</p>
         <p><strong>邮箱：</strong><a href={`mailto:${profile.email}`}>{profile.email}</a></p>
         <p><strong>电话：</strong><a href={`tel:${profile.phone}`}>{profile.phone}</a></p>
         <p><strong>律所电话：</strong><a href={`tel:${profile.firmPhone}`}>{profile.firmPhone}</a></p>
         <p><strong>办公地址：</strong>{profile.address}</p>
+        <p>
+          <strong>律所官方信息页：</strong>
+          <a class="text-link" href={profile.officialProfileUrl} target="_blank" rel="noopener noreferrer">查看方丽英律师官方介绍</a>
+        </p>
+        <p class="contact-disclaimer">{profile.disclaimer}</p>
       </div>
     </div>
   </section>

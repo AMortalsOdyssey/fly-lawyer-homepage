@@ -13,23 +13,25 @@ const featuredInsights = insights.filter((item) => item.data.featured).slice(0, 
 const featuredNews = news.filter((item) => item.data.featured).slice(0, 3);
 ---
 
-<BaseLayout title="方丽英｜婚姻家事与家族财富管理律师" description="方丽英律师个人主页，展示婚姻家事与家族财富管理、银行与证券、不良资产处置、涉外民商事领域的专业履历、代表案例与法律解读。">
+<BaseLayout title="方丽英｜婚姻家事与家族财富传承律师" description="方丽英律师个人主页，专注婚姻家事与家族财富传承，提供复杂家事纠纷、家企资产隔离、涉外家事与企业家家庭资产安排法律服务。">
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-copy" data-reveal>
         <h1>{profile.name}</h1>
+        <p class="hero-positioning">{profile.positioning}</p>
         <p class="hero-role">{profile.title}</p>
         <div class="hero-info">
-          <p><span>电 话</span><a href={`tel:${profile.phone}`}>{profile.phone}</a></p>
-          <p><span>邮 箱</span><a href={`mailto:${profile.email}`}>{profile.email}</a></p>
+          <p><span>执业证号</span>{profile.licenseNumber}</p>
+          <p><span>电　　话</span><a href={`tel:${profile.phone}`}>{profile.phone}</a></p>
+          <p><span>邮　　箱</span><a href={`mailto:${profile.email}`}>{profile.email}</a></p>
         </div>
         <div class="hero-field">
           <h2>专业领域</h2>
-          <p>{practice.map((item) => item.data.shortTitle).join("，")}</p>
+          <p>{profile.heroPracticeAreas.join("，")}</p>
         </div>
       </div>
       <div class="hero-portrait" data-reveal>
-        <img src="/assets/fangliying-portrait.png" alt="方丽英律师职业形象照，婚姻家事与家族财富管理律师" />
+        <img src="/assets/fangliying-portrait.png" alt="方丽英律师职业形象照，婚姻家事与家族财富传承律师" />
       </div>
     </div>
   </section>
@@ -37,15 +39,19 @@ const featuredNews = news.filter((item) => item.data.featured).slice(0, 3);
   <section class="section band-white">
     <div class="container split-grid">
       <article class="bio-panel" data-reveal>
-        <h2>{profile.name}</h2>
+        <span class="eyebrow">About</span>
+        <h2>个人简介</h2>
         <p>{profile.intro}</p>
+        <p>{profile.expertise}</p>
+        <p>{profile.approach}</p>
         <p>{profile.principle}</p>
+        <a class="card-link" href="/about/">查看完整简介</a>
       </article>
       <aside class="side-rail" data-reveal>
         <div class="rail-block">
           <h3>执业资格</h3>
           <ul class="clean-list">
-            <li>2018年 中国律师执业资格</li>
+            {profile.qualifications.map((item) => <li>{item}</li>)}
           </ul>
         </div>
         <div class="rail-block">
@@ -70,7 +76,7 @@ const featuredNews = news.filter((item) => item.data.featured).slice(0, 3);
         <aside class="practice-minimal-intro" data-reveal>
           <span class="eyebrow">Practice</span>
           <h2 class="section-title">专业领域</h2>
-          <p>以婚姻家事为主线，延伸至继承、财富传承、家庭资产安排与私人客户法律服务。</p>
+          <p>以婚姻家事与财富传承为主线，为复杂家庭资产、跨境财产与家企风险提供诉讼、调解和规划服务。</p>
         </aside>
         <div class="practice-minimal-list">
           {practice.map((item, index) => (
@@ -93,28 +99,59 @@ const featuredNews = news.filter((item) => item.data.featured).slice(0, 3);
   <section class="section band-white">
     <div class="container">
       <span class="eyebrow">Cases</span>
-      <h2 class="section-title">精选案例</h2>
-      <p class="section-lead">婚姻家事、商事争议、金融争议、劳动争议与民刑交叉等代表经历。</p>
-      <div class="list-stack">
-        {featuredCases.map((item) => (
-          <a class="case-card" href={`/cases/${item.id}/`} data-category={item.data.category} data-reveal>
-            <div>
-              <p class="meta">{item.data.category} · {item.data.field}</p>
-              <h3>{item.data.title}</h3>
-              <p>{item.data.summary}</p>
-              <span class="card-link">查看案例</span>
-            </div>
-          </a>
+      <h2 class="section-title">代表案例</h2>
+      <p class="section-lead">下列案例均已作脱敏处理，涵盖复杂婚姻家事、妇女儿童权益、家企资产隔离及相关综合争议。</p>
+      <div class="case-summary-grid">
+        {profile.caseGroups.map((group, index) => (
+          <article class="case-summary-group" data-reveal>
+            <span class="minimal-index">{String(index + 1).padStart(2, "0")}</span>
+            <h3>{group.title}</h3>
+            <ul>
+              {group.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </article>
         ))}
       </div>
+      {featuredCases.length > 0 && (
+        <div class="case-detail-block">
+          <div class="subsection-heading">
+            <h3>精选案例</h3>
+            <a class="card-link" href="/cases/">查看全部案例</a>
+          </div>
+          <div class="list-stack">
+            {featuredCases.map((item) => (
+              <a class="case-card" href={`/cases/${item.id}/`} data-category={item.data.category} data-reveal>
+                <div>
+                  <p class="meta">{item.data.category} · {item.data.field}</p>
+                  <h3>{item.data.title}</h3>
+                  <p>{item.data.summary}</p>
+                  <span class="card-link">查看案例</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   </section>
 
   <section class="section">
     <div class="container">
       <span class="eyebrow">News</span>
-      <h2 class="section-title">动态资讯</h2>
-      <p class="section-lead">专业活动、荣誉消息、公益普法与律所动态。</p>
+      <h2 class="section-title">行业任职与专业活动</h2>
+      <p class="section-lead">持续参与婚姻家事、妇女儿童权益与律师专业化建设，以培训、研讨和行业交流推动实务经验共享。</p>
+      <div class="activity-list">
+        {profile.professionalActivities.map((item) => (
+          <div class="activity-item" data-reveal>
+            <span>{item.year}</span>
+            <p>{item.text}</p>
+          </div>
+        ))}
+      </div>
+      <div class="subsection-heading">
+        <h3>动态资讯</h3>
+        <a class="card-link" href="/news/">查看全部动态</a>
+      </div>
       <div class="list-stack">
         {featuredNews.map((item) => (
           <a class="insight-card news-card" href={`/news/${item.id}/`} data-category={item.data.category} data-reveal>
@@ -133,8 +170,8 @@ const featuredNews = news.filter((item) => item.data.featured).slice(0, 3);
   <section class="section">
     <div class="container">
       <span class="eyebrow">Insights</span>
-      <h2 class="section-title">法律解读</h2>
-      <p class="section-lead">以解读、研究和评论三类内容承接办案手记与专业观察，全部生成独立静态链接。</p>
+      <h2 class="section-title">专业研究与普法动态</h2>
+      <p class="section-lead">{profile.research}</p>
       <div class="list-stack">
         {featuredInsights.map((item) => (
           <a class="insight-card" href={`/insights/${item.id}/`} data-category={item.data.type} data-reveal>
@@ -150,6 +187,27 @@ const featuredNews = news.filter((item) => item.data.featured).slice(0, 3);
     </div>
   </section>
 
+  <section class="section band-white" id="faq">
+    <div class="container faq-grid">
+      <div class="faq-intro" data-reveal>
+        <span class="eyebrow">FAQ</span>
+        <h2 class="section-title">常见问题</h2>
+        <p>以下为常见家事法律问题的一般性说明。具体处理方案仍需结合证据、资产结构和个案事实判断。</p>
+      </div>
+      <div class="faq-list">
+        {profile.faqs.map((item, index) => (
+          <details class="faq-item" open={index === 0} data-reveal>
+            <summary>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              {item.question}
+            </summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="section-tight band-white">
     <div class="container contact-grid">
       <div>
@@ -160,6 +218,7 @@ const featuredNews = news.filter((item) => item.data.featured).slice(0, 3);
         <p><strong>邮箱：</strong><a href={`mailto:${profile.email}`}>{profile.email}</a></p>
         <p><strong>电话：</strong><a href={`tel:${profile.phone}`}>{profile.phone}</a></p>
         <p><strong>地址：</strong>{profile.address}</p>
+        <p class="contact-disclaimer">{profile.disclaimer}</p>
         <a class="button secondary" href="/contact/">查看联系信息</a>
       </div>
     </div>

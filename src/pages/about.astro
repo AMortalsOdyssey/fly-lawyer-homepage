@@ -3,12 +3,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { profile } from "@/data/profile";
 ---
 
-<BaseLayout title="简介" description="方丽英律师完整履历、执业身份、荣誉奖项、社会职务、代表经历与服务企业。">
+<BaseLayout title="个人简介" description="方丽英律师个人简介、专业定位、执业资质、行业任职、荣誉奖项与专业活动。">
   <section class="page-hero">
     <div class="container">
       <span class="eyebrow">About</span>
-      <h1 class="section-title">简介</h1>
-      <p class="section-lead">执业身份、专业方向、荣誉奖项、社会职务与服务经验。</p>
+      <h1 class="section-title">方丽英</h1>
+      <p class="section-lead">{profile.positioning}</p>
     </div>
   </section>
   <section class="section">
@@ -16,12 +16,14 @@ import { profile } from "@/data/profile";
       <article class="bio-panel">
         <h2>{profile.name}</h2>
         <p>{profile.intro}</p>
+        <p>{profile.expertise}</p>
+        <p>{profile.approach}</p>
         <p>{profile.principle}</p>
-        <h2>擅长领域</h2>
+        <h2>六大专业服务板块</h2>
         <div class="tag-row">
           {profile.practiceAreas.map((area) => <span class="tag">{area}</span>)}
         </div>
-        <h2>服务企业与单位</h2>
+        <h2 class="clients-heading">服务企业与单位</h2>
         <p>{profile.clients.join("、")}等数十家企业和单位。</p>
       </article>
       <aside class="side-rail">
@@ -38,6 +40,20 @@ import { profile } from "@/data/profile";
           <ul class="clean-list">{profile.honors.map((item) => <li>{item}</li>)}</ul>
         </div>
       </aside>
+    </div>
+  </section>
+  <section class="section band-white">
+    <div class="container">
+      <span class="eyebrow">Activities</span>
+      <h2 class="section-title">行业任职与专业活动</h2>
+      <div class="activity-list">
+        {profile.professionalActivities.map((item) => (
+          <div class="activity-item">
+            <span>{item.year}</span>
+            <p>{item.text}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 </BaseLayout>

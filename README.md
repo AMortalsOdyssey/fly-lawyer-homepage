@@ -2,7 +2,7 @@
 
 # 方丽英律师个人主页
 
-婚姻家事与家族财富管理律师个人静态站点。
+婚姻家事与家族财富传承律师个人静态站点。
 
 [![Astro](https://img.shields.io/badge/Astro-6.4-ff5d01?style=flat-square)](https://astro.build/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178c6?style=flat-square)](https://www.typescriptlang.org/)
@@ -26,7 +26,8 @@
 | 模块 | 页面 | 内容来源 |
 | --- | --- | --- |
 | 个人主页 | [`/`](https://fangliying.com/) | 履历摘要、专业领域、精选案例、动态资讯、法律解读 |
-| 专业领域 | [`/practice/`](https://fangliying.com/practice/) | 婚姻家事诉讼、婚姻家庭非诉、继承、私人客户及财富管理 |
+| 个人简介 | [`/about/`](https://fangliying.com/about/) | 专业定位、执业资质、行业任职、荣誉奖项与专业活动 |
+| 专业领域 | [`/practice/`](https://fangliying.com/practice/) | 婚姻家事诉讼、诉前调解、财富传承、涉外家事、家企隔离与企业顾问 |
 | 精选案例 | [`/cases/`](https://fangliying.com/cases/) | 代表案例 Markdown，支持独立详情页 |
 | 动态资讯 | [`/news/`](https://fangliying.com/news/) | 专业活动、荣誉消息、公益普法、行业动态 |
 | 法律解读 | [`/insights/`](https://fangliying.com/insights/) | 解读、研究、评论类文章 |
@@ -62,7 +63,7 @@ src/
 
 | 类型 | 数量 |
 | --- | ---: |
-| 专业领域 | 4 |
+| 专业领域 | 6 |
 | 精选案例 | 3 |
 | 动态资讯 | 15 |
 | 法律解读 | 3 |
