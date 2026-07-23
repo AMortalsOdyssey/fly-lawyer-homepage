@@ -1,8 +1,8 @@
 ---
-title: "方丽英律师陪同黄埔区司法局一行指导交流"
+title: "方丽英律师陪同广州市黄埔区司法局一行指导交流"
 category: "来访交流"
 pubDate: 2023-08-23
-summary: "方丽英律师陪同黄埔区司法局一行参观指导，并就律所队伍建设、业务开展和内部管理情况进行交流。"
+summary: "方丽英律师陪同广州市黄埔区司法局一行参观指导，并就律所队伍建设、业务开展和内部管理情况进行交流。"
 featured: false
 sourceUrl: "https://mp.weixin.qq.com/s/DPK48Y6aiFyz8C7bznPP3A"
 ---

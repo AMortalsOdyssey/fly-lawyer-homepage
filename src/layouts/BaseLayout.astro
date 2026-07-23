@@ -55,6 +55,16 @@ const jsonLd = {
       name: profile.firm,
       url: profile.firmUrl,
       telephone: profile.firmPhone,
+      areaServed: [
+        {
+          "@type": "City",
+          name: "广州市"
+        },
+        {
+          "@type": "AdministrativeArea",
+          name: "广东省"
+        }
+      ],
       address: {
         "@type": "PostalAddress",
         streetAddress: profile.address,

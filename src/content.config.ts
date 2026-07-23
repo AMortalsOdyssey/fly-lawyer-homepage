@@ -6,6 +6,8 @@ const practice = defineCollection({
   loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/practice" }),
   schema: z.object({
     title: z.string(),
+    seoTitle: z.string().optional(),
+    seoDescription: z.string().optional(),
     shortTitle: z.string(),
     order: z.number(),
     summary: z.string(),

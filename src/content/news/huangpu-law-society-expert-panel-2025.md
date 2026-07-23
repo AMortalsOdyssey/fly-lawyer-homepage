@@ -1,8 +1,8 @@
 ---
-title: "方丽英律师受聘黄埔区法学会公益法律咨询专家团成员"
+title: "方丽英律师受聘广州市黄埔区法学会公益法律咨询专家团成员"
 category: "社会职务"
 pubDate: 2025-01-23
-summary: "方丽英律师受聘为黄埔区法学会公益法律咨询专家团成员，将继续参与公益法律咨询与基层法治服务。"
+summary: "方丽英律师受聘为广州市黄埔区法学会公益法律咨询专家团成员，将继续参与公益法律咨询与基层法治服务。"
 featured: false
 sourceUrl: "https://mp.weixin.qq.com/s/7COkRqeVlXR0nOFOocVWSA"
 ---
