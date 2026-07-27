@@ -39,12 +39,33 @@ const jsonLd = {
       "@type": "Person",
       "@id": `${siteMeta.domain}/#person`,
       name: profile.name,
-      jobTitle: profile.positioning,
+      // jobTitle 放真实职务，定位语放 description。
+      // 结构化数据里的 jobTitle 是给实体识别用的字段，写营销语会让实体属性失真。
+      jobTitle: "高级合伙人",
+      description: profile.positioning,
+      hasOccupation: {
+        "@type": "Occupation",
+        name: "律师",
+        occupationLocation: { "@type": "City", name: "广州市" }
+      },
       url: siteMeta.domain,
       image: `${siteMeta.domain}/assets/fangliying-portrait.png`,
       telephone: profile.phone,
       email: profile.email,
-      identifier: profile.licenseNumber,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: profile.address,
+        addressLocality: profile.city,
+        addressRegion: "广东",
+        addressCountry: "CN"
+      },
+      identifier: {
+        "@type": "PropertyValue",
+        propertyID: "律师执业证号",
+        value: profile.licenseNumber
+      },
+      award: profile.honors,
+      memberOf: profile.roles.map((role) => ({ "@type": "OrganizationRole", roleName: role })),
       worksFor: { "@id": `${siteMeta.domain}/#lawfirm` },
       knowsAbout: profile.practiceAreas,
       sameAs: [profile.officialProfileUrl, profile.firmUrl]

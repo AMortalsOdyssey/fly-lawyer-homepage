@@ -253,6 +253,14 @@ textarea {
   line-height: 1.8;
 }
 
+/* 定位语现在是 H1 的一部分（视觉不变，仍是姓名下面那行蓝字），
+   目的是让 H1 同时含城市与业务词，而不是只有姓名。 */
+.hero-h1-sub {
+  display: block;
+  margin: 4px 0 0;
+  font-weight: normal;
+}
+
 .hero-role {
   max-width: 520px;
   margin: 0 0 16px;

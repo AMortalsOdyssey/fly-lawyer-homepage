@@ -33,8 +33,9 @@ const faqSchema = {
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-copy" data-reveal>
-        <h1>{profile.name}</h1>
-        <p class="hero-positioning">{profile.positioning}</p>
+        {/* H1 里带上城市与业务词：页面与问题的语义匹配度是被引用的最强预测因子（r=0.432，
+            高于站点权威度），只写人名等于把首屏最重要的语义位置留空。视觉上仍以姓名为主。 */}
+        <h1>{profile.name}<span class="hero-positioning hero-h1-sub">{profile.positioning}</span></h1>
         <p class="hero-role">{profile.title}</p>
         <div class="hero-info">
           <p><span>执业证号</span>{profile.licenseNumber}</p>

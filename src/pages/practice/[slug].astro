@@ -11,18 +11,31 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const allPractice = sortPractice(await getCollection("practice"));
+
+// 页面上本来就有可见面包屑，这里补上对应的结构化数据，让层级关系对抓取方也成立
+const breadcrumbSchema = {
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "首页", item: "https://fangliying.com/" },
+    { "@type": "ListItem", position: 2, name: "专业领域", item: "https://fangliying.com/practice/" },
+    { "@type": "ListItem", position: 3, name: entry.data.title, item: `https://fangliying.com/practice/${entry.id}/` }
+  ]
+};
 ---
 
 <BaseLayout
   title={entry.data.seoTitle ?? entry.data.title}
   description={entry.data.seoDescription ?? entry.data.summary}
   canonical={`/practice/${entry.id}/`}
+  structuredData={breadcrumbSchema}
 >
   <section class="page-hero">
     <div class="container">
-      <span class="eyebrow">Practice</span>
-      <h1 class="section-title">专业领域</h1>
-      <p class="section-lead">从家事诉讼、柔性调解到财富传承、跨境财产与家企风险隔离，提供覆盖家庭资产全周期的法律服务。</p>
+      <span class="eyebrow">专业领域</span>
+      {/* H1 用本页主题词而不是栏目名：6 个子页原来共用「专业领域」这一个 H1，
+          等于把最强的语义信号（标题对题）全部浪费掉。 */}
+      <h1 class="section-title">{entry.data.title}</h1>
+      <p class="section-lead">{entry.data.summary}</p>
     </div>
   </section>
 
@@ -47,7 +60,7 @@ const allPractice = sortPractice(await getCollection("practice"));
       </nav>
 
       <article class="practice-content-panel" aria-labelledby="practice-current-title">
-        <h2 id="practice-current-title">{entry.data.title}</h2>
+        <h2 id="practice-current-title">{entry.data.shortTitle ?? entry.data.title}服务范围与处理要点</h2>
         <div class="article-body practice-body"><Content /></div>
       </article>
     </div>
