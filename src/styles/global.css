@@ -1254,6 +1254,37 @@ textarea {
   overflow-wrap: anywhere;
 }
 
+/* 正文表格：对比型内容用表格承载，便于阅读也便于被整块抽取 */
+.article-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+.article-body th,
+.article-body td {
+  border: 1px solid #e2e8f0;
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+  line-height: 26px;
+  color: #2e3545;
+}
+
+.article-body th {
+  background: #f7f9fc;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .article-body table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
 .article-body img {
   display: block;
   max-width: min(100%, 760px);
