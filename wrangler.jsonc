@@ -1,12 +1,26 @@
 {
-  // Cloudflare Workers 静态资源部署（assets-only，不需要 Worker 脚本）
+  // Cloudflare Workers 静态托管配置（assets-only，不需要 Worker 脚本）。
+  //
+  // 现状：站点仍由阿里云上的 Caddy 提供服务（DNS A 记录 8.141.112.228，DNS only）。
+  //      这份配置是「要不要搬到 Cloudflare」的现成方案，当前**未启用**，放着不会影响生产。
   //
   // 站点是 Astro static 输出，trailingSlash: "always"，所以：
   //   html_handling: "auto-trailing-slash"  → /about 自动补成 /about/
   //   not_found_handling: "404-page"        → 有 404.html 时用它，没有则返回默认 404
   //
-  // 部署：npm run build && npx wrangler deploy
-  // 域名切换：把 routes 里的 pattern 改成 fangliying.com 再 deploy（当前先挂 staging 域名验证）
+  // 真要切到 Cloudflare（一次性，需要交互式终端）：
+  //   1. 取消下面 routes 那段的注释
+  //   2. npm run build && npx wrangler deploy
+  //   3. 对 "already has a DNS record, override?" 回 y
+  //      （wrangler 要确认才会覆盖 apex 上现有的 A 记录，非交互式部署会直接失败）
+  //   回滚：在 Cloudflare DNS 把 fangliying.com 的 A 记录改回 8.141.112.228（DNS only）
+  //
+  // "routes": [
+  //   {
+  //     "pattern": "fangliying.com",
+  //     "custom_domain": true
+  //   }
+  // ],
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "fly-lawyer-homepage",
   "compatibility_date": "2026-06-14",
@@ -16,22 +30,6 @@
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page"
   },
-  // 生产切换步骤（只需一次，需要交互式确认，非交互式部署会失败）：
-  //   1. 把下面 fangliying.com 那段取消注释
-  //   2. 在终端里跑 npx wrangler deploy，对 "already has a DNS record, override?" 回 y
-  //      （apex 现有 A 记录 8.141.112.228 指向阿里云 Caddy，wrangler 需要确认才会覆盖）
-  //   回滚：在 Cloudflare DNS 把 fangliying.com 的 A 记录改回 8.141.112.228（DNS only）
-  //
-  // {
-  //   "pattern": "fangliying.com",
-  //   "custom_domain": true
-  // },
-  "routes": [
-    {
-      "pattern": "fly.8xd.io",
-      "custom_domain": true
-    }
-  ],
   "observability": {
     "enabled": true
   }
