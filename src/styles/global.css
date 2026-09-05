@@ -1851,3 +1851,21 @@ textarea {
     padding: 20px 10px;
   }
 }
+
+/* Paired event photographs, following the source article order. */
+.article-body .article-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 28px 0;
+}
+.article-body .article-photo-grid img {
+  width: 100%;
+  margin: 0;
+  align-self: start;
+}
+@media (max-width: 640px) {
+  .article-body .article-photo-grid {
+    grid-template-columns: 1fr;
+  }
+}
