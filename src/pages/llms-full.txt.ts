@@ -82,7 +82,7 @@ export const GET: APIRoute = async () => {
       section(
         item.data.title,
         absoluteUrl(`/insights/${item.id}/`),
-        [formatDate(item.data.pubDate), item.data.category, item.data.summary],
+        [formatDate(item.data.pubDate), item.data.type, item.data.summary],
         item.body ?? ""
       )
     );
